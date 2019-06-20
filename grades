@@ -1,0 +1,27 @@
+function convertScoreToGradeWithPlusAndMinus(score) {
+  if (score > 100 || score < 0) {
+      return "INVALID SCORE";
+  }
+  var letterScore = "";
+  if (score <= 100 && score >= 90) {
+      letterScore = "A";
+  } else if (score <=89 && score >= 80) {
+      letterScore = "B";
+  } else if (score <=79 && score >= 70) {
+      letterScore = "C";
+  } else if (score <=69 && score >= 60) {
+      letterScore = "D";
+  } else {
+      letterScore = "F";
+  }
+
+  if (score === 100) {
+    return "A+";
+  } else if (score.toString()[1] >= 0 && score.toString()[1] <= 2 && letterScore != "F") {
+    return letterScore + "-";
+  } else if (score.toString()[1] >= 8 && score.toString()[1] <= 9 && letterScore != "F"){
+    return letterScore + "+";
+  } else {
+    return letterScore;
+  }
+}
